@@ -1,0 +1,114 @@
+import { Fragment, useState } from 'react'
+import { Dialog, Transition } from '@headlessui/react'
+import { IProject, IProp } from "../../projects"
+
+interface ProjectModalProps {
+    project: IProject
+}
+
+function ProjectModal({ project }: ProjectModalProps) {
+    let [isOpen, setIsOpen] = useState(false)
+
+  function closeModal() {
+    setIsOpen(false)
+  }
+
+  function openModal() {
+    setIsOpen(true)
+  }
+
+
+    return (
+        <>
+            {/* <button
+                type="button"
+                onClick={openModal}
+                className="p-1 hover:bg-black hover:text-white"
+            >
+                Details
+            </button> */}
+
+            <Transition appear show={isOpen} as={Fragment}>
+                <Dialog as="div" className="relative z-10" onClose={closeModal}>
+                    <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                    >
+                        <div className="fixed inset-0 bg-black/50" />
+                    </Transition.Child>
+
+                    <div className="fixed inset-0 overflow-y-auto">
+                        <div className="flex min-h-full items-center justify-center p-4 text-center">
+                            <Transition.Child
+                                as={Fragment}
+                                enter="ease-out duration-300"
+                                enterFrom="opacity-0 scale-95"
+                                enterTo="opacity-100 scale-100"
+                                leave="ease-in duration-200"
+                                leaveFrom="opacity-100 scale-100"
+                                leaveTo="opacity-0 scale-95"
+                            >
+                                <Dialog.Panel className="font-mono w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                                    <Dialog.Title
+                                        as="h3"
+                                        className="text-lg font-medium leading-6 text-gray-900 flex justify-between"
+                                    >
+                                        <div>{project.name}</div>
+                                        <button onClick={closeModal}>[𝗫]</button>
+                                    </Dialog.Title>
+                                    <div className="mt-2 text-sm text-gray-500 flex flex-col gap-2">
+                                        {/* <div className='flex gap-4'>
+                                            <a href={project.links.telegram} className="hover:underline">TLG</a>
+                                            <a href={project.links.contract} className="hover:underline">BSC</a>
+                                        </div> */}
+                                        <p>{project.tags.join(", ")}</p>
+                                        {project.properties.map((property: IProp, i: number) => (
+                                            <div className='flex flex-row justify-between'>
+                                                <div>{property.key}</div>
+                                                <div>{property.value}</div>
+                                            </div>
+                                        ))}
+                                        <p>{project.description}</p>
+                                        <div className='flex gap-8'>
+                                            <div className='basis-1/2'>
+                                                <div className='flex justify-between underline'>
+                                                    <div>Buy Tax:</div>
+                                                    <div>{project.tax.buy.reduce((sum: number, { value }: IProp) => (sum + (value as number || 0)), 0)}%</div>
+                                                </div>
+                                                {project.tax.buy.map((property: IProp, index: number) => (
+                                                    <div className='flex justify-between'>
+                                                        <div>{property.key}:</div>
+                                                        <div>{property.value}%</div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                            <div className='basis-1/2'>
+                                                <div className='flex justify-between underline'>
+                                                    <div>Sell Tax:</div>
+                                                    <div>{project.tax.sell.reduce((sum: number, { value }: IProp) => (sum + (value as number || 0)), 0)}%</div>
+                                                </div>
+                                                {project.tax.sell.map((property: IProp, index: number) => (
+                                                    <div className='flex justify-between'>
+                                                        <div>{property.key}:</div>
+                                                        <div>{property.value}%</div>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Dialog.Panel>
+                            </Transition.Child>
+                        </div>
+                    </div>
+                </Dialog>
+            </Transition>
+        </>
+    )
+}
+
+export default ProjectModal;

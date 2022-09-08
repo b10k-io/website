@@ -11,8 +11,8 @@ module.exports = {
       'sans': ['IBM Plex Sans', ...defaultTheme.fontFamily.sans],
       'serif': ['IBM Plex Serif', ...defaultTheme.fontFamily.serif],
       'mono': ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
-      // 'display': ['Oswald', ...],
-      // 'body': ['"Open Sans"', ...],
+      // 'display': ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
+      // 'body': ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
     }
 
     },
