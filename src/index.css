@@ -3,7 +3,14 @@
 @tailwind utilities;
 
 
-html, body {
+html, body, #root {
     @apply bg-black;
     @apply text-white;
+    /* height: 100%; */
+}
+
+td {
+    @apply border;
+    @apply border-black/25;
+    @apply p-2;
 }

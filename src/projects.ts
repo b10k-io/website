@@ -22,48 +22,50 @@ export interface IProject {
 const projects: IProject[] = [
     {
         symbol: "DBC",
-        name: "[DABLOC]",
-        tags: ["Governance"],
+        name: "[B10K.IO]",
+        tags: ["governance"],
         properties: [
-            { key: "Launch Date:", value: "TBD" },
-            { key: "Initial Supply:", value: "1,000,000" },
+            { key: "launch date:", value: "tbd" },
+            { key: "initial supply:", value: "1,000,000" },
         ],
-        description: "[DABLOC] (DBC) is a Community Governance Token. DBC holders will be able to claim rewards if they stake their tokens, and participate in key governance votes. Holders will be able to shape the future of the [DABLOC] ecosystem.",
+        description: "[B10K.IO] (DBC) is a community governance token. DBC holders will be able to claim rewards if they stake their tokens, and participate in key governance votes. Holders will be able to shape the future of the [B10K.IO] ecosystem.",
         tax: {
             buy: [],
             sell: []
         },
         links: [
-            { key: "Telegram", value: "https://t.me", target: "_blank" },
-            { key: "Info", value: "/projects/DBC" },
-            { key: "BSCScan", value: "https://bscscan.com", target: "_blank" },
+            { key: "telegram", value: "https://t.me/b10kchannel", target: "_blank" },
+            { key: "info", value: "/projects/DBC" },
+            { key: "bscscan", value: "https://bscscan.com", target: "_blank" },
+            { key: "github", value: "https://github.com", target: "_blank" },
         ]
     },
     {
         symbol: "PJ1",
         name: "[PROJECT_1]",
-        tags: ["Stealth"],
+        tags: ["stealth"],
         properties: [
-            { key: "Launch Date:", value: "TBD" },
-            { key: "Initial Supply:", value: "100,000,000" },
+            { key: "launch date:", value: "TBD" },
+            { key: "initial supply:", value: "100,000,000" },
         ],
-        description: "[PROJECT_1] (PJ1) is a Stealth Launch. PJ1 has the primary use case of raising initial awareness around [DABLOC] as well as A/B testing marketing techniques. Liquidity will be locked for one week.",
+        description: "[PROJECT_1] (PJ1) is a stealth launch. PJ1 has the primary use case of raising initial awareness around [B10K.IO] as well as A/B testing marketing techniques. Liquidity will be locked for one week.",
         tax: {
             buy: [
-                { key: "Governance", value: 1 },
-                { key: "Development", value: 1 },
-                { key: "Marketing", value: 8 },
+                { key: "governance", value: 1 },
+                { key: "development", value: 1 },
+                { key: "marketing", value: 8 },
             ],
             sell: [
-                { key: "Governance", value: 1 },
-                { key: "Development", value: 1 },
-                { key: "Marketing", value: 13 },
+                { key: "governance", value: 3 },
+                { key: "development", value: 3 },
+                { key: "marketing", value: 9 },
             ],
         },
         links: [
-            { key: "Telegram", value: "https://t.me", target: "_blank" },
-            { key: "Info", value: "/projects/PJ1" },
-            { key: "BSCScan", value: "https://bscscan.com", target: "_blank" },
+            { key: "telegram", value: "https://t.me", target: "_blank" },
+            { key: "info", value: "/projects/PJ1" },
+            { key: "bscscan", value: "https://bscscan.com", target: "_blank" },
+            { key: "github", value: "https://github.com", target: "_blank" },
         ]
     }
 ]
