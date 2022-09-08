@@ -75,7 +75,7 @@ function ProjectModal({ project }: ProjectModalProps) {
                                     <div className="mt-2 text-sm text-black/50 flex flex-col gap-4">
                                         <p>{project.tags.join(", ")}</p>
                                         <div className='flex justify-between'>
-                                            <div>Resources:</div>
+                                            <div>resources:</div>
                                             <GroupedLinks links={project.links} modal={true} />
                                         </div>
                                         {project.properties.map((property: IProp, i: number) => (
@@ -85,10 +85,11 @@ function ProjectModal({ project }: ProjectModalProps) {
                                             </div>
                                         ))}
                                         <p>{project.description}</p>
+                                        { project.tax ? (
                                         <div className='flex gap-8'>
                                             <div className='basis-1/2'>
                                                 <div className='flex justify-between underline'>
-                                                    <div>Buy Tax:</div>
+                                                    <div>buy tax:</div>
                                                     <div>{project.tax.buy.reduce((sum: number, { value }: IProp) => (sum + (value as number || 0)), 0)}%</div>
                                                 </div>
                                                 {project.tax.buy.map((property: IProp, i: number) => (
@@ -100,7 +101,7 @@ function ProjectModal({ project }: ProjectModalProps) {
                                             </div>
                                             <div className='basis-1/2'>
                                                 <div className='flex justify-between underline'>
-                                                    <div>Sell Tax:</div>
+                                                    <div>sell tax:</div>
                                                     <div>{project.tax.sell.reduce((sum: number, { value }: IProp) => (sum + (value as number || 0)), 0)}%</div>
                                                 </div>
                                                 {project.tax.sell.map((property: IProp, i: number) => (
@@ -110,7 +111,34 @@ function ProjectModal({ project }: ProjectModalProps) {
                                                     </div>
                                                 ))}
                                             </div>
-                                        </div>
+                                        </div>) : <p>tax: 0%</p>}
+                                        {project.allocation ? (
+                                            <>
+                                                <h4>initial allocation:</h4>
+                                                <table>
+                                                    <thead>
+                                                        <tr>
+                                                            <td className="border-0 underline px-0 py-1">who</td>
+                                                            <td className="text-right border-0 underline px-0 py-1">% supply</td>
+                                                            <td className="text-right border-0 underline px-0 py-1">unlock</td>
+                                                            <td className="text-right border-0 underline px-0 py-1">cliff</td>
+                                                            <td className="text-right border-0 underline px-0 py-1">vesting</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {project.allocation.map((alloc, i) => (
+                                                            <tr key={i}>
+                                                                <td className="border-0 px-0 py-1">{alloc.key}</td>
+                                                                <td className="text-right border-0 px-0 py-1">{alloc.value}%</td>
+                                                                <td className="text-right border-0 px-0 py-1">{alloc.initialUnlock}</td>
+                                                                <td className="text-right border-0 px-0 py-1">{alloc.cliff}</td>
+                                                                <td className="text-right border-0 px-0 py-1">{alloc.vesting}</td>
+                                                            </tr>
+                                                        ))}
+                                                    </tbody>
+                                                </table>
+                                            </>
+                                        ) : <></>}
                                     </div>
                                 </Dialog.Panel>
                             </Transition.Child>
