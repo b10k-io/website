@@ -10,6 +10,7 @@ interface ITax {
 }
 
 export interface IProject {
+    symbol: string
     name: string
     tags: string[]
     properties: IProp[]
@@ -20,6 +21,7 @@ export interface IProject {
 
 const projects: IProject[] = [
     {
+        symbol: "DBC",
         name: "[DABLOC]",
         tags: ["Governance"],
         properties: [
@@ -34,10 +36,11 @@ const projects: IProject[] = [
         links: [
             { key: "Telegram", value: "https://t.me", target: "_blank" },
             { key: "BSCScan", value: "https://bscscan.com", target: "_blank" },
-            { key: "Info", value: "/DBC" },
+            { key: "Info", value: "/projects/DBC" },
         ]
     },
     {
+        symbol: "PJ1",
         name: "[PROJECT_1]",
         tags: ["Stealth"],
         properties: [
@@ -60,7 +63,7 @@ const projects: IProject[] = [
         links: [
             { key: "Telegram", value: "https://t.me", target: "_blank" },
             { key: "BSCScan", value: "https://bscscan.com", target: "_blank" },
-            { key: "Info", value: "/PJ1" },
+            { key: "Info", value: "/projects/PJ1" },
         ]
     }
 ]

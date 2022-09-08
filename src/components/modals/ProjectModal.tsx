@@ -1,13 +1,24 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { IProject, IProp } from "../../projects"
+import { useParams } from 'react-router-dom'
+import GroupedLinks from '../links/GroupedLinks'
 
 interface ProjectModalProps {
     project: IProject
 }
 
 function ProjectModal({ project }: ProjectModalProps) {
+
+    let { projectId } = useParams()
+
     let [isOpen, setIsOpen] = useState(false)
+
+    useEffect(() => {
+        if (projectId === project.symbol) {
+            setIsOpen(true);
+        }
+    }, [projectId])
 
   function closeModal() {
     setIsOpen(false)
@@ -53,22 +64,19 @@ function ProjectModal({ project }: ProjectModalProps) {
                                 leaveFrom="opacity-100 scale-100"
                                 leaveTo="opacity-0 scale-95"
                             >
-                                <Dialog.Panel className="font-mono w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                                <Dialog.Panel className="font-mono w-full max-w-lg transform overflow-hidden rounded-2xl bg-white p-8 text-left align-middle shadow-xl transition-all">
                                     <Dialog.Title
                                         as="h3"
-                                        className="text-lg font-medium leading-6 text-gray-900 flex justify-between"
+                                        className="text-2xl font-semibold leading-6 text-gray-900 flex justify-between"
                                     >
                                         <div>{project.name}</div>
-                                        <button onClick={closeModal}>[𝗫]</button>
+                                        {/* <button onClick={closeModal} className="text-black/50 hover:text-black">[𝗫]</button> */}
                                     </Dialog.Title>
-                                    <div className="mt-2 text-sm text-gray-500 flex flex-col gap-2">
-                                        {/* <div className='flex gap-4'>
-                                            <a href={project.links.telegram} className="hover:underline">TLG</a>
-                                            <a href={project.links.contract} className="hover:underline">BSC</a>
-                                        </div> */}
+                                    <div className="mt-2 text-sm text-black/50 flex flex-col gap-4">
+                                        <GroupedLinks links={project.links} modal={true} />
                                         <p>{project.tags.join(", ")}</p>
                                         {project.properties.map((property: IProp, i: number) => (
-                                            <div className='flex flex-row justify-between'>
+                                            <div className='flex flex-row justify-between' key={i}>
                                                 <div>{property.key}</div>
                                                 <div>{property.value}</div>
                                             </div>
@@ -80,8 +88,8 @@ function ProjectModal({ project }: ProjectModalProps) {
                                                     <div>Buy Tax:</div>
                                                     <div>{project.tax.buy.reduce((sum: number, { value }: IProp) => (sum + (value as number || 0)), 0)}%</div>
                                                 </div>
-                                                {project.tax.buy.map((property: IProp, index: number) => (
-                                                    <div className='flex justify-between'>
+                                                {project.tax.buy.map((property: IProp, i: number) => (
+                                                    <div className='flex justify-between' key={i}>
                                                         <div>{property.key}:</div>
                                                         <div>{property.value}%</div>
                                                     </div>
@@ -92,8 +100,8 @@ function ProjectModal({ project }: ProjectModalProps) {
                                                     <div>Sell Tax:</div>
                                                     <div>{project.tax.sell.reduce((sum: number, { value }: IProp) => (sum + (value as number || 0)), 0)}%</div>
                                                 </div>
-                                                {project.tax.sell.map((property: IProp, index: number) => (
-                                                    <div className='flex justify-between'>
+                                                {project.tax.sell.map((property: IProp, i: number) => (
+                                                    <div className='flex justify-between' key={i}>
                                                         <div>{property.key}:</div>
                                                         <div>{property.value}%</div>
                                                     </div>
