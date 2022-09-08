@@ -1,7 +1,6 @@
 import PanelWrapper from "./PanelWrapper";
 import { IProject } from "../../projects"
 import ProjectModal from "../modals/ProjectModal";
-import { useState } from "react";
 import GroupedLinks from "../links/GroupedLinks";
 
 interface PanelProjectProps {
