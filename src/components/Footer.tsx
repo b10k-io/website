@@ -10,7 +10,7 @@ function Footer() {
                 <div className="flex justify-center flex-row gap-4">
                     <RiskModal />
                     <FAQModal />
-                    <a href="https://t.me/b10kchannel" className={klass} target="_blank">telegram</a>
+                    <a href="https://t.me/b10kchannel" className={klass} target="_blank" rel="noreferrer">telegram</a>
                 </div>
             </div>
         </footer>
