@@ -1,7 +1,7 @@
 import PanelWrapper from "./PanelWrapper";
-import { IProject, IProp } from "../../projects"
+import { IProject } from "../../projects"
 import ProjectModal from "../modals/ProjectModal";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import GroupedLinks from "../links/GroupedLinks";
 
 interface PanelProjectProps {
@@ -9,8 +9,6 @@ interface PanelProjectProps {
 }
 
 function PanelData({ project }: PanelProjectProps) {
-
-    let [isModalOpen, setModalIsOpen] = useState(false)
 
     return (
         <PanelWrapper className="bg-white border-2 border-white text-black">

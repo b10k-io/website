@@ -18,15 +18,15 @@ function ProjectModal({ project }: ProjectModalProps) {
         if (projectId === project.symbol) {
             setIsOpen(true);
         }
-    }, [projectId])
+    }, [projectId, project.symbol])
 
-  function closeModal() {
-    setIsOpen(false)
-  }
+    function closeModal() {
+        setIsOpen(false)
+    }
 
-  function openModal() {
-    setIsOpen(true)
-  }
+    //   function openModal() {
+    //     setIsOpen(true)
+    //   }
 
 
     return (
