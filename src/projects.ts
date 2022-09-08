@@ -35,8 +35,8 @@ const projects: IProject[] = [
         },
         links: [
             { key: "Telegram", value: "https://t.me", target: "_blank" },
-            { key: "BSCScan", value: "https://bscscan.com", target: "_blank" },
             { key: "Info", value: "/projects/DBC" },
+            { key: "BSCScan", value: "https://bscscan.com", target: "_blank" },
         ]
     },
     {
@@ -62,8 +62,8 @@ const projects: IProject[] = [
         },
         links: [
             { key: "Telegram", value: "https://t.me", target: "_blank" },
-            { key: "BSCScan", value: "https://bscscan.com", target: "_blank" },
             { key: "Info", value: "/projects/PJ1" },
+            { key: "BSCScan", value: "https://bscscan.com", target: "_blank" },
         ]
     }
 ]

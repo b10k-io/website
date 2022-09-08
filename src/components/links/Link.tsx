@@ -6,7 +6,9 @@ interface LinkProp {
 
 function Link({ property }: LinkProp) {
     return (
-        <a href={property.value as string} className="p-1 hover:bg-black hover:text-white" target={property.target}>{property.key}</a>
+        <div>
+            <a href={property.value as string} className="py-1 underline hover:bg-black hover:text-white outline-0" target={property.target}>{property.key}</a>
+        </div>
     )
 }
 

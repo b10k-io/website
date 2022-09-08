@@ -15,12 +15,9 @@ function GroupedLinks({ links, modal=false}: GroupedLinksProps) {
 
 
     return (
-        <div className={`flex gap-2 items-center ${ modal ? '' : 'justify-between' }`}>
-        {links.map((property, index) => (
-            <Fragment key={index}>
-                <Link property={property} />
-                { index !== links.length - 1 ? <span className="text-black/50">|</span> : <></>}
-            </Fragment>
+        <div className={`flex flex-col md:flex-row gap-2 items-center ${ modal ? '' : 'justify-between' }`}>
+        {links.map((property, i) => (
+            <Link property={property} key={i} />
         ))}
         </div>
     )

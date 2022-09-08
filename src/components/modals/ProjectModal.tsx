@@ -70,11 +70,14 @@ function ProjectModal({ project }: ProjectModalProps) {
                                         className="text-2xl font-semibold leading-6 text-gray-900 flex justify-between"
                                     >
                                         <div>{project.name}</div>
-                                        {/* <button onClick={closeModal} className="text-black/50 hover:text-black">[𝗫]</button> */}
+                                        <button onClick={closeModal} className="text-xs text-black/50 hover:text-white p-1 hover:bg-black outline-0">[CLOSE]</button>
                                     </Dialog.Title>
                                     <div className="mt-2 text-sm text-black/50 flex flex-col gap-4">
-                                        <GroupedLinks links={project.links} modal={true} />
                                         <p>{project.tags.join(", ")}</p>
+                                        <div className='flex justify-between'>
+                                            <div>Resources:</div>
+                                            <GroupedLinks links={project.links} modal={true} />
+                                        </div>
                                         {project.properties.map((property: IProp, i: number) => (
                                             <div className='flex flex-row justify-between' key={i}>
                                                 <div>{property.key}</div>
