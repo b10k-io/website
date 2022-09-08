@@ -28,17 +28,17 @@ export interface IProject {
 
 const projects: IProject[] = [
     {
-        symbol: "DBC",
+        symbol: "B10",
         name: "[B10K.IO]",
         tags: ["governance"],
         properties: [
             { key: "launch date:", value: "tbd" },
             { key: "initial supply:", value: "1,000,000" },
         ],
-        description: "[B10K.IO] (DBC) is a community governance token. DBC holders will be able to claim rewards if they stake their tokens, and participate in key governance votes. Holders will be able to shape the future of the [B10K.IO] ecosystem.",
+        description: "[B10K.IO] (B10) is a community governance token. B10 holders will be able to claim rewards if they stake their tokens, and participate in key governance votes. Holders will be able to shape the future of the [B10K.IO] ecosystem.",
         links: [
             { key: "telegram", value: "https://t.me/b10kchannel", target: "_blank" },
-            { key: "info", value: "/projects/DBC" },
+            { key: "info", value: "/projects/B10" },
             { key: "bscscan", value: "https://bscscan.com", target: "_blank" },
             { key: "github", value: "https://github.com", target: "_blank" },
         ],
@@ -48,7 +48,7 @@ const projects: IProject[] = [
             { key: "partners", value: 20, initialUnlock: 0, cliff: 6, vesting: 18 },
             { key: "staking", value: 30, initialUnlock: 0, cliff: 0, vesting: 60 },
             { key: "reserves", value: 15, initialUnlock: 0, cliff: 6, vesting: 18 },
-            { key: "public", value: 5, initialUnlock: 0, cliff: 0, vesting: 0 },
+            { key: "public", value: 5, initialUnlock: 100, cliff: 0, vesting: 0 },
             { key: "seed", value: 5, initialUnlock: 0, cliff: 6, vesting: 18 },
         ]
     },

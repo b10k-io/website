@@ -74,6 +74,11 @@ function ProjectModal({ project }: ProjectModalProps) {
                                     </Dialog.Title>
                                     <div className="mt-2 text-sm text-black/50 flex flex-col gap-4">
                                         <p>{project.tags.join(", ")}</p>
+                                        <p>{project.description}</p>
+                                        <div className='flex justify-between'>
+                                            <div>symbol:</div>
+                                            <div>{project.symbol}</div>
+                                        </div>
                                         <div className='flex justify-between'>
                                             <div>resources:</div>
                                             <GroupedLinks links={project.links} modal={true} />
@@ -84,7 +89,6 @@ function ProjectModal({ project }: ProjectModalProps) {
                                                 <div>{property.value}</div>
                                             </div>
                                         ))}
-                                        <p>{project.description}</p>
                                         { project.tax ? (
                                         <div className='flex gap-8'>
                                             <div className='basis-1/2'>
@@ -111,7 +115,10 @@ function ProjectModal({ project }: ProjectModalProps) {
                                                     </div>
                                                 ))}
                                             </div>
-                                        </div>) : <p>tax: 0%</p>}
+                                        </div>) : <div className='flex justify-between'>
+                                            <div>tax:</div>
+                                            <div>0%</div>
+                                        </div>}
                                         {project.allocation ? (
                                             <>
                                                 <h4>initial allocation:</h4>
@@ -130,9 +137,9 @@ function ProjectModal({ project }: ProjectModalProps) {
                                                             <tr key={i}>
                                                                 <td className="border-0 px-0 py-1">{alloc.key}</td>
                                                                 <td className="text-right border-0 px-0 py-1">{alloc.value}%</td>
-                                                                <td className="text-right border-0 px-0 py-1">{alloc.initialUnlock}</td>
-                                                                <td className="text-right border-0 px-0 py-1">{alloc.cliff}</td>
-                                                                <td className="text-right border-0 px-0 py-1">{alloc.vesting}</td>
+                                                                <td className="text-right border-0 px-0 py-1">{alloc.initialUnlock}%</td>
+                                                                <td className="text-right border-0 px-0 py-1">{alloc.cliff}m</td>
+                                                                <td className="text-right border-0 px-0 py-1">{alloc.vesting}m</td>
                                                             </tr>
                                                         ))}
                                                     </tbody>
