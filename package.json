@@ -1,6 +1,7 @@
 {
   "name": "website",
   "version": "0.1.0",
+  "homepage": "https://b10k-io.github.io/website",
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.7.0",
