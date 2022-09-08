@@ -3,10 +3,9 @@
 @tailwind utilities;
 
 
-html, body, #root {
+html, body {
     @apply bg-black;
     @apply text-white;
-    /* height: 100%; */
 }
 
 td {
