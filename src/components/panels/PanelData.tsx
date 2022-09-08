@@ -1,8 +1,8 @@
 import PanelWrapper from "./PanelWrapper";
-import { IData } from "../../data"
+import { IProject } from "../../projects"
 
 interface PanelDataProps {
-    data: IData
+    data: IProject
 }
 
 function PanelData({ data }: PanelDataProps) {
