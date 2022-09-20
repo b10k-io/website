@@ -3,6 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { IProject, IProp } from "../../projects"
 import { useParams } from 'react-router-dom'
 import GroupedLinks from '../links/GroupedLinks'
+import shortEnglishHumanizer from "../../helpers/shortEnglishHumanizer"
 
 interface ProjectModalProps {
     project: IProject
@@ -138,8 +139,8 @@ function ProjectModal({ project }: ProjectModalProps) {
                                                                 <td className="border-0 px-0 py-1">{alloc.key}</td>
                                                                 <td className="text-right border-0 px-0 py-1">{alloc.value}%</td>
                                                                 <td className="text-right border-0 px-0 py-1">{alloc.initialUnlock}%</td>
-                                                                <td className="text-right border-0 px-0 py-1">{alloc.cliff}m</td>
-                                                                <td className="text-right border-0 px-0 py-1">{alloc.vesting}m</td>
+                                                                <td className="text-right border-0 px-0 py-1">{shortEnglishHumanizer(alloc.cliff, alloc.config)}</td>
+                                                                <td className="text-right border-0 px-0 py-1">{shortEnglishHumanizer(alloc.vesting, alloc.config)}</td>
                                                             </tr>
                                                         ))}
                                                     </tbody>
