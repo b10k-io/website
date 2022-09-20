@@ -40,8 +40,8 @@ const projects: IProject[] = [
         links: [
             { key: "telegram", value: "https://t.me/b10kchannel", target: "_blank" },
             { key: "info", value: "/projects/B10" },
-            { key: "bscscan", value: "https://bscscan.com", target: "_blank" },
-            { key: "github", value: "https://github.com", target: "_blank" },
+            // { key: "bscscan", value: "https://bscscan.com", target: "_blank" },
+            // { key: "github", value: "https://github.com", target: "_blank" },
         ],
         allocation: [
             { key: "team", value: 20, initialUnlock: 0, cliff: 180*24*60*60*1000, vesting: 3*180*24*60*60*1000, config: { units: "w", round: true } },
